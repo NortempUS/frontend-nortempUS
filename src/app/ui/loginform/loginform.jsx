@@ -23,7 +23,9 @@ export default function LoginForm() {
     })
 
     if (response.ok) {
-      window.location.href = "/services"
+      const responseLogin = await response.json()
+      localStorage.setItem("token", responseLogin.token)
+      window.location.href = "/main/services"
     } else {
       console.error("Error al iniciar sesión")
     }
