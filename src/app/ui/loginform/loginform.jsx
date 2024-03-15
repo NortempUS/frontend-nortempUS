@@ -52,7 +52,7 @@ export default function LoginForm() {
         </button>
       </div>
       <div className="mt-6 text-blue-500 text-center">
-        <Link href="#" className="hover:underline">
+        <Link href="/register" className="hover:underline">
           Registrarse
         </Link>
       </div>
