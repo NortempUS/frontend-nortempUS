@@ -44,13 +44,15 @@ export default function Page() {
         {isLoading ? (
           <div className='p-5'>Cargando...</div>
         ) : (
-          services.map((data, index) => (
-            <Card
-              key={index}
-              data={data}
-              isMyCard={data.receiver === localStorage.getItem("user_id")}
-            />
-          ))
+          services
+            .filter(data => data.status === true)
+            .map((data, index) => (
+              <Card
+                key={index}
+                data={data}
+                isMyCard={data.receiver === localStorage.getItem("user_id")}
+              />
+            ))
         )}
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client"
+import CreateServiceButton from "@/app/ui/createserviceform/createservicebutton"
 import Card from "../../../ui/card/card"
-import Link from "next/link"
 import React, { useEffect, useState } from "react"
 export default function Page() {
   const [services, setServices] = useState([])
@@ -22,8 +22,7 @@ export default function Page() {
           }
         )
         const data = await response.json()
-        setServices(data.serializer)
-        setCategories(data.category_names)
+        setServices(data)
       } catch (error) {
         console.error("Error:", error)
       } finally {
@@ -31,33 +30,26 @@ export default function Page() {
       }
     }
 
-    console.log(services)
-
     fetchData()
   }, [])
 
   return (
     <div className='flex flex-col gap-2'>
-      <div className='flex justify-end items-center'>
-        <Link
-          href='/main/services/create-service'
-          className='bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md content lg:w-[300px] text-center'
-        >
-          Crear Servicio
-        </Link>
-      </div>
+      <CreateServiceButton />
 
       <div className='flex flex-col gap-2'>
         {isLoading ? (
           <div className='p-5'>Cargando...</div>
         ) : (
-          <Card
-            key={index}
-            data={services[index]}
-            isMyCard={
-              services[index].receiver === localStorage.getItem("user_id")
-            }
-          />
+          services
+            .filter(data => data.status === true)
+            .map((data, index) => (
+              <Card
+                key={index}
+                data={data}
+                isMyCard={data.receiver === localStorage.getItem("user_id")}
+              />
+            ))
         )}
       </div>
     </div>
