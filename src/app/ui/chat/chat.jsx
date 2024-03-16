@@ -21,7 +21,6 @@ export default function Chat({ params }) {
           }
         )
         const data = await response.json()
-        console.log(data)
         setMessages(data)
       } catch (error) {
         console.error("Error:", error)
