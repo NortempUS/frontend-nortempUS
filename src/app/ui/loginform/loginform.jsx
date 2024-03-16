@@ -25,6 +25,8 @@ export default function LoginForm() {
     if (response.ok) {
       const responseLogin = await response.json()
       localStorage.setItem("token", responseLogin.token)
+      localStorage.setItem("user", responseLogin.user.username)
+      localStorage.setItem("user_id", responseLogin.user.id)
       window.location.href = "/main/services"
     } else {
       console.error("Error al iniciar sesión")
