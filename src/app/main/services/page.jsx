@@ -5,8 +5,8 @@ export default function Page() {
     <div className="flex flex-col gap-2">
       <div className="flex justify-end items-center">
         <Link
-          href="/"
-          className="bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded-md content lg:w-[300px] text-center"
+          href="/main/services/create-service"
+          className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md content lg:w-[300px] text-center"
         >
           Crear Servicio
         </Link>
