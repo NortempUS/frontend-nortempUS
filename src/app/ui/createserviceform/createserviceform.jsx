@@ -17,9 +17,11 @@ export default function CreateServiceForm() {
       body: JSON.stringify({
         title: title,
         description: description,
+        receiver: localStorage.getItem("user_id"),
       }),
       credentials: "same-origin",
     })
+    console.log(response)
 
     if (response.ok) {
       window.location.href = "/main/services"
