@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import CreateServiceButton from "@/app/ui/createserviceform/createservicebutton";
 import React, { useEffect, useState } from "react";
 
 export default function Page({ params }) {
@@ -36,12 +36,7 @@ export default function Page({ params }) {
   return (
     <div>
       <div className="flex justify-end items-center">
-        <Link
-          href="/main/services/create-service"
-          className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md content lg:w-[300px] text-center"
-        >
-          Crear Servicio
-        </Link>
+        <CreateServiceButton />
       </div>
       <div className="flex flex-col items-center lg:items-start lg:flex-row gap-2 p-3 bg-white rounded-md mt-2">
         <img

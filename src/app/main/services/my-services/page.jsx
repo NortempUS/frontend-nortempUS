@@ -1,6 +1,6 @@
 "use client";
 import Card from "../../../ui/card/card";
-import Link from "next/link";
+import CreateServiceButton from "../../../ui/createserviceform/createservicebutton";
 import React, { useEffect, useState } from "react";
 
 export default function Page() {
@@ -38,14 +38,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="flex justify-end items-center">
-        <Link
-          href="/main/services/create-service"
-          className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md content lg:w-[300px] text-center"
-        >
-          Crear Servicio
-        </Link>
-      </div>
+      <CreateServiceButton />
 
       <div className="flex flex-col gap-2">
         {isLoading ? (
