@@ -16,7 +16,7 @@ export default function Card({ data, isMyCard }) {
           {data.description}
         </p>
         <div className='flex flex-col sm:flex-row items-center justify-between'>
-          <Link className='inline-block' href='#'>
+          <Link className='inline-block' href={`/main/services/${data.id}`}>
             <button
               className='flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-600 transition-all hover:bg-blue-600/10 active:bg-blue-600/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none'
               type='button'

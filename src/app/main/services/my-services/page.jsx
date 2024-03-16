@@ -13,7 +13,7 @@ export default function Page() {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/list-services/${user_id}`,
+          `http://127.0.0.1:8000/list-services-receiver/${user_id}`,
           {
             headers: {
               "Content-Type": "/json",
