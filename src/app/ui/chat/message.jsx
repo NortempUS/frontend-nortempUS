@@ -2,6 +2,13 @@ import clsx from "clsx";
 
 export default function Message({ message }) {
   const sender = message.user === 1;
+  const date = new Date(message.timestamp);
+  const formattedDate = `${date.getFullYear()}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")} ${String(
+    date.getHours()
+  ).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
+
   return (
     <div className="w-full">
       <div className={clsx("flex", sender ? "justify-end" : "justify-start")}>
@@ -16,7 +23,7 @@ export default function Message({ message }) {
           </p>
           <p className="flex justify-end">
             <small className={clsx(sender ? "text-white" : "text-black")}>
-              {message.timestamp}
+              {formattedDate}
             </small>
           </p>
         </div>
