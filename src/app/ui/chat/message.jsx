@@ -1,9 +1,9 @@
-import clsx from "clsx";
+import clsx from "clsx"
 
 export default function Message({ message }) {
-  const sender = message.user === 1;
+  const sender = localStorage.getItem("user_id") == message.user
   return (
-    <div className="w-full">
+    <div className='w-full'>
       <div className={clsx("flex", sender ? "justify-end" : "justify-start")}>
         <div
           className={clsx(
@@ -14,7 +14,7 @@ export default function Message({ message }) {
           <p className={clsx(sender ? "text-white" : "text-black")}>
             {message.message}
           </p>
-          <p className="flex justify-end">
+          <p className='flex justify-end'>
             <small className={clsx(sender ? "text-white" : "text-black")}>
               {message.timestamp}
             </small>
@@ -22,5 +22,5 @@ export default function Message({ message }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
