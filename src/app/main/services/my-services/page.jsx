@@ -2,6 +2,7 @@
 import Card from "../../../ui/card/card";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+
 export default function Page() {
   const [categories, setCategories] = useState([]);
   const [services, setServices] = useState([]);
@@ -14,7 +15,7 @@ export default function Page() {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/list-services/${user_id}`,
+          `http://127.0.0.1:8000/list-services-receiver/${user_id}`,
           {
             headers: {
               "Content-Type": "/json",
