@@ -1,16 +1,15 @@
-"use client";
-import Card from "../../../ui/card/card";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+"use client"
+import Card from "../../../ui/card/card"
+import Link from "next/link"
+import React, { useEffect, useState } from "react"
 export default function Page() {
-  const [categories, setCategories] = useState([]);
-  const [services, setServices] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [services, setServices] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
-      const localToken = localStorage.getItem("token");
-      const user_id = localStorage.getItem("user_id");
+      const localToken = localStorage.getItem("token")
+      const user_id = localStorage.getItem("user_id")
 
       try {
         const response = await fetch(
@@ -21,40 +20,46 @@ export default function Page() {
               Authorization: `Token ${localToken}`,
             },
           }
-        );
-        const data = await response.json();
-        setServices(data.serializer);
-        setCategories(data.category_names);
+        )
+        const data = await response.json()
+        setServices(data.serializer)
+        setCategories(data.category_names)
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Error:", error)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
-    };
+    }
 
-    fetchData();
-  }, []);
+    console.log(services)
+
+    fetchData()
+  }, [])
 
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex justify-end items-center">
+    <div className='flex flex-col gap-2'>
+      <div className='flex justify-end items-center'>
         <Link
-          href="/main/services/create-service"
-          className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md content lg:w-[300px] text-center"
+          href='/main/services/create-service'
+          className='bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md content lg:w-[300px] text-center'
         >
           Crear Servicio
         </Link>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className='flex flex-col gap-2'>
         {isLoading ? (
-          <div className="p-5">Cargando...</div>
+          <div className='p-5'>Cargando...</div>
         ) : (
-          categories.map((category, index) => (
-            <Card key={index} data={services[index]} category={category} />
-          ))
+          <Card
+            key={index}
+            data={services[index]}
+            isMyCard={
+              services[index].receiver === localStorage.getItem("user_id")
+            }
+          />
         )}
       </div>
     </div>
-  );
+  )
 }
