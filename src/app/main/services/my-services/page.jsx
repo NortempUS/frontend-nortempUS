@@ -1,5 +1,5 @@
 "use client";
-import Card from "@/app/ui/card/card";
+import Card from "../../../ui/card/card";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 export default function Page() {
@@ -10,13 +10,18 @@ export default function Page() {
   useEffect(() => {
     const fetchData = async () => {
       const localToken = localStorage.getItem("token");
+      const user_id = localStorage.getItem("user_id");
+
       try {
-        const response = await fetch("http://127.0.0.1:8000/list-services", {
-          headers: {
-            "Content-Type": "/json",
-            Authorization: `Token ${localToken}`,
-          },
-        });
+        const response = await fetch(
+          `http://127.0.0.1:8000/list-services/${user_id}`,
+          {
+            headers: {
+              "Content-Type": "/json",
+              Authorization: `Token ${localToken}`,
+            },
+          }
+        );
         const data = await response.json();
         setServices(data.serializer);
         setCategories(data.category_names);
