@@ -18,7 +18,6 @@ export default function Page() {
           {
             headers: {
               "Content-Type": "/json",
-              Authorization: `Token ${localToken}`,
             },
           }
         )

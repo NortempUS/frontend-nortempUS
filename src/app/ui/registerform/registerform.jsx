@@ -14,23 +14,26 @@ export default function RegisterForm() {
   const handleSubmit = async event => {
     event.preventDefault()
 
-    const response = await fetch("http://localhost:8000/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        first_name: name,
-        last_name: last_name,
-        phone: phone,
-        username: username,
-        email: email,
-        gender: gender,
-        age: age,
-        password: password,
-      }),
-      credentials: "same-origin",
-    })
+    const response = await fetch(
+      "http://aaaaaaaaaaaaa.pythonanywhere.com//register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          first_name: name,
+          last_name: last_name,
+          phone: phone,
+          username: username,
+          email: email,
+          gender: gender,
+          age: age,
+          password: password,
+        }),
+        credentials: "same-origin",
+      }
+    )
 
     if (response.ok) {
       window.location.href = "/"

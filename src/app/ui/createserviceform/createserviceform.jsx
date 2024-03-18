@@ -14,12 +14,11 @@ export default function CreateServiceForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Token ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({
           title: title,
           description: description,
-          receiver: localStorage.getItem("user_id"),
+          receiver: 1,
         }),
         credentials: "same-origin",
       }
