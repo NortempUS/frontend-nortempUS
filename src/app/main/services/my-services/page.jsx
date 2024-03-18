@@ -8,8 +8,12 @@ export default function Page() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const localToken = localStorage.getItem("token")
-      const user_id = localStorage.getItem("user_id")
+      let localToken = ""
+      let user_id = ""
+      if (typeof window !== "undefined") {
+        localToken = localStorage.getItem("token")
+        user_id = localStorage.getItem("user_id")
+      }
 
       try {
         const response = await fetch(

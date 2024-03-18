@@ -11,7 +11,7 @@ export default function Page() {
             width={500}
             height={300}
           ></Image>
-          <p className='text-2xl text-gray-600'>"Hoy por ti, mañana por mi"</p>
+          <p className='text-2xl text-gray-600'>Hoy por ti, mañana por mi</p>
         </div>
       </div>
       <LoginForm />

@@ -8,7 +8,10 @@ export default function Page() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const localToken = localStorage.getItem("token")
+      let localToken = ""
+      if (typeof window !== "undefined") {
+        localToken = localStorage.getItem("token")
+      }
       try {
         const response = await fetch("http://127.0.0.1:8000/list-services", {
           headers: {
