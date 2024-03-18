@@ -8,19 +8,22 @@ export default function CreateServiceForm() {
   const handleSubmit = async event => {
     event.preventDefault()
 
-    const response = await fetch("http://localhost:8000/create-service", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({
-        title: title,
-        description: description,
-        receiver: localStorage.getItem("user_id"),
-      }),
-      credentials: "same-origin",
-    })
+    const response = await fetch(
+      "aaaaaaaaaaaaa.pythonanywhere.com/create-service",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          title: title,
+          description: description,
+          receiver: localStorage.getItem("user_id"),
+        }),
+        credentials: "same-origin",
+      }
+    )
     console.log(response)
 
     if (response.ok) {

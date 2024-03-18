@@ -10,7 +10,7 @@ export default function LoginForm() {
   const handleSubmit = async event => {
     event.preventDefault()
 
-    const response = await fetch("http://localhost:8000/login", {
+    const response = await fetch("aaaaaaaaaaaaa.pythonanywhere.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

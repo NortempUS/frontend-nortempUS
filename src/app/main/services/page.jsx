@@ -13,12 +13,15 @@ export default function Page() {
         localToken = localStorage.getItem("token")
       }
       try {
-        const response = await fetch("http://127.0.0.1:8000/list-services", {
-          headers: {
-            "Content-Type": "/json",
-            Authorization: `Token ${localToken}`,
-          },
-        })
+        const response = await fetch(
+          "aaaaaaaaaaaaa.pythonanywhere.com/list-services",
+          {
+            headers: {
+              "Content-Type": "/json",
+              Authorization: `Token ${localToken}`,
+            },
+          }
+        )
         const data = await response.json()
         console.log(data)
         setServices(data)
